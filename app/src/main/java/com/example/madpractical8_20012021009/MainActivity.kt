@@ -1,6 +1,7 @@
 package com.example.madpractical8_20012021009
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,9 @@ class MainActivity : AppCompatActivity(), Animation.AnimationListener {
     lateinit var alarmimgs : ImageView
     lateinit var alarmimg_frameByFrameAnimation : AnimationDrawable
     lateinit var alarmimgAnimation : Animation
+    lateinit var heartimgs : ImageView
+    lateinit var heart_frameByFrameAnimation : AnimationDrawable
+    lateinit var heartAnimation : Animation
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -19,9 +23,17 @@ class MainActivity : AppCompatActivity(), Animation.AnimationListener {
         alarmimgs = findViewById(R.id.alarmImages)
         alarmimgs.setBackgroundResource(R.drawable.alarm_image_list)
 
+        heartimgs = findViewById(R.id.heartImages)
+        heartimgs.setBackgroundResource(R.drawable.heart_image_list)
+
         alarmimg_frameByFrameAnimation = alarmimgs.background as AnimationDrawable
 
+        heart_frameByFrameAnimation = heartimgs.background as AnimationDrawable
+
         alarmimgAnimation = AnimationUtils.loadAnimation(this, R.anim.alarm_animation)
+        alarmimgAnimation.setAnimationListener(this)
+
+        heartAnimation = AnimationUtils.loadAnimation(this, R.anim.heart_animation)
         alarmimgAnimation.setAnimationListener(this)
     }
     override fun onWindowFocusChanged(hasFocus: Boolean) {
@@ -30,10 +42,13 @@ class MainActivity : AppCompatActivity(), Animation.AnimationListener {
         if(hasFocus){
             alarmimg_frameByFrameAnimation.start()
             alarmimgs.startAnimation(alarmimgAnimation)
+
+            heart_frameByFrameAnimation.start()
+            heartimgs.startAnimation(heartAnimation)
         }
-        else{
-            alarmimg_frameByFrameAnimation.stop()
-        }
+//        else{
+//            alarmimg_frameByFrameAnimation.stop()
+//        }
     }
     override fun onAnimationStart(p0: Animation?) {
 
