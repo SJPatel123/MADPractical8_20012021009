@@ -46,9 +46,6 @@ class MainActivity : AppCompatActivity(), Animation.AnimationListener {
             heart_frameByFrameAnimation.start()
             heartimgs.startAnimation(heartAnimation)
         }
-//        else{
-//            alarmimg_frameByFrameAnimation.stop()
-//        }
     }
     override fun onAnimationStart(p0: Animation?) {
 

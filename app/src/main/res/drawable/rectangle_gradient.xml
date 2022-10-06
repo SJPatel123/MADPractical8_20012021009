@@ -5,7 +5,7 @@
         android:centerX="0.9"
         android:centerY="0.9"
         android:gradientRadius="1500"
-        android:startColor="@color/white"
-        android:endColor="@color/black"
+        android:startColor="@color/pink"
+        android:endColor="@color/light_teal"
         android:type="radial"/>
 </shape>
