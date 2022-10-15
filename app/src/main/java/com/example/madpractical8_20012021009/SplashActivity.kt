@@ -21,7 +21,7 @@ class SplashActivity : AppCompatActivity(), Animation.AnimationListener {
 
         logo_frameByFrameAnimation = guni_image.background as AnimationDrawable
 
-        twinAnimation = AnimationUtils.loadAnimation(this, R.anim.twin_animation)
+        twinAnimation = AnimationUtils.loadAnimation(this, R.anim.tween_animation)
         twinAnimation.setAnimationListener(this)
     }
 
